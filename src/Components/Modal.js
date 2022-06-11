@@ -18,7 +18,7 @@ export default () => {
   const [Range, setRange] = useState([1, 10]);
   const [Type, setType] = useState("Lecture");
 
-  console.log(list);
+
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -43,22 +43,25 @@ export default () => {
     setInputs((values) => ({
       ...values,
       [name]: value,
-      Type,
-
       Attendance: [],
+      classAttendance:[],
     }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    
+
     dispatch(
       addUser({
         ...inputs,
-        id: inputs.Subject + inputs.Batch + inputs.Branch + inputs.Type,
+        Type:Type,
+        id: inputs.Subject + inputs.Batch + inputs.Branch + Type,
         Range,
       })
     );
+    // alert(Type)
   };
 
   const [items, setItems] = useState({
@@ -68,7 +71,7 @@ export default () => {
   });
 
   return (
-    <>
+    <div>
       <Button
         type="default"
         shape="round"
@@ -153,19 +156,32 @@ export default () => {
               }}
               onChange={setType}
             >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="Yiminghe">yiminghe</Option>
+              <Option value="Session">Session</Option>
+              <Option value="Eaxam">Eaxam</Option>
+              <Option value="Practical">Practical</Option>
+              <Option value="Tutorial">Tutorial</Option>
+              <Option value="Lecture">Lecture</Option>
             </ant.Select>
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit" block>
+            <Button type="primary" htmlType="submit"
+            style={{
+             
+              borderRadius: "6px",
+              border: 'none',
+              display: "inline-block",
+              cursor: "pointer", "color": "#ffffff",
+              
+              height:'2rem',
+              textDecoration: "none",
+            }}
+            block>
               Submit
             </Button>
           </Form.Item>
         </form>
       </Modal>
-    </>
+    </div>
   );
 };

@@ -12,11 +12,28 @@ export default () => (
         <Button key="3">
           <Link to="/"> Home</Link>
         </Button>,
-        <Button key="2">
-          <Link to="/Addattendance/:id">Profile</Link>
-        </Button>,
-        <Button key="1" type="primary">
-          Creat template
+        // <Button key="2"
+        
+        // onClick={()=>{
+        //   localStorage.removeItem('Template')
+
+          
+        // }}
+        // >
+        //   Profile
+        // </Button>,
+        <Button key="1" 
+        style={{
+          borderRadius: "6px",
+          border: 'none',
+          display: "inline-block",
+          cursor: "pointer", "color": "#ffffff",
+          
+          height:'3rem',
+          textDecoration: "none",
+        }}
+        type="primary">
+       <Link to="/Template">Creat template</Link>   
         </Button>,
       ]}
     ></PageHeader>
